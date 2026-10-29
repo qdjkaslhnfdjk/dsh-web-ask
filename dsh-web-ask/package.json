@@ -1,0 +1,58 @@
+{
+  "name": "dsh-web-ask",
+  "version": "1.5.2",
+  "description": "Ask DeepSeek Web about the current DeepSeek Harness conversation without spending the project Agent's API tokens. Embeds chat.deepseek.com via the desktop webview lease, streams the answer back into a floating panel.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "pack:plugin": "npm pack"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.1 <0.3.0"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "webview",
+    "chat",
+    "ai"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qdjkashlnfdjk/dsh-web-ask.git"
+  },
+  "homepage": "https://github.com/qdjkashlnfdjk/dsh-web-ask#readme",
+  "bugs": {
+    "url": "https://github.com/qdjkashlnfdjk/dsh-web-ask/issues"
+  }
+}

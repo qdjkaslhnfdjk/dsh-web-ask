@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Harness 网页 AI 桥接器",
+  "version": "1.0.0",
+  "description": "将 DeepSeek Harness 的会话问题发送到 DeepSeek 网页版，并返回答案。",
+  "permissions": ["tabs"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://chat.deepseek.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1/*", "http://localhost/*"],
+      "js": ["dsh-bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": ["deepseek.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

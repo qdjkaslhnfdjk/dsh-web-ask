@@ -1,0 +1,3 @@
+- insert:
+    - id: web-ask
+      name: '@local/dsh-web-ask'
